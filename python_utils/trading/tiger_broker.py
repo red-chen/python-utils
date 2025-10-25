@@ -15,11 +15,6 @@ from tigeropen.trade.trade_client import TradeClient
 
 from python_utils.trading.models import Option, OptionType
 
-class TigerBrokerError(Exception):
-    """老虎证券API异常"""
-    pass
-
-
 class TigerBroker:
     """
     老虎证券API客户端

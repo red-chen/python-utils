@@ -1,14 +1,24 @@
 
+from mailbox import BabylMessage
 from pydantic import BaseModel, Field
 from enum import Enum, auto
+
+
+class Symbol(str, Enum):
+    """股票或期权合约代码"""
+    SPY = "SPY"
+    QQQ = "QQQ"
+    TSLA = "TSLA"
+    NVDA = "NVDA"
+    AAPL = "AAPL"
+    PLTR = "PLTR"
+    BABA = "BABA"
 
 class OptionType(str, Enum):
     """期权类型枚举"""
     PUT = "put"   # 看跌期权
     CALL = "call" # 看涨期权
-
-
-
+    
 class Option(BaseModel):
     """合约信息"""
     symbol: str = Field(default="", description="合约代码")
